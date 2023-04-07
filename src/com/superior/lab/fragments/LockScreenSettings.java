@@ -64,6 +64,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     	private static final String SHORTCUT_ENFORCE_KEY = "lockscreen_shortcut_enforce";
     	
     	private static final String KG_CUSTOM_CLOCK_COLOR_ENABLED = "kg_custom_clock_color_enabled";
+    	
+    	 private static final String LOCKSCREEN_DOUBLE_LINE_CLOCK = "lockscreen_double_line_clock_switch";
 
         private PreferenceCategory mUdfpsCategory;
         private FingerprintManager mFingerprintManager;
@@ -73,6 +75,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     	private SystemSettingListPreference mEndShortcut;
     	private SwitchPreference mEnforceShortcut;
     	private SwitchPreference mKGCustomClockColor;
+    	private SecureSettingSwitchPreference mDoubleLineClock;
     	
     @Override
     public void onCreate(Bundle icicle) {
@@ -124,6 +127,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             prefSet.removePreference(mFingerprintSuccessVib);
             prefSet.removePreference(mFingerprintErrorVib);
         }
+        
+        mDoubleLineClock = (SecureSettingSwitchPreference ) findPreference(LOCKSCREEN_DOUBLE_LINE_CLOCK);
+        mDoubleLineClock.setChecked((Settings.Secure.getInt(getContentResolver(),
+             Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK, 1) != 0));
+        mDoubleLineClock.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -154,6 +162,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
             return true;
+        } else if (preference == mDoubleLineClock) {
+        	boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(resolver,
+                    Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK, value ? 1 : 0);
+            return true; 
         }
         return false;
     }
