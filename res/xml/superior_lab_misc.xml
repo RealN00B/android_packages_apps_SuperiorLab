@@ -58,11 +58,11 @@
             android:summary="@string/use_photos_spoof_summary"
             android:defaultValue="true" />
             
-       <com.superior.support.preferences.SecureSettingSwitchPreference
-           android:key="games_device_spoof"
-           android:title="@string/games_device_spoof_title"
-           android:summary="@string/games_device_spoof_summary"
-           android:defaultValue="false"/>
+       <com.superior.support.preferences.SystemSettingSwitchPreference
+            android:key="persist.sys.pixelprops.games"
+            android:title="@string/use_games_spoof_title"
+            android:summary="@string/use_games_spoof_summary"
+            android:defaultValue="false" />
            
        <com.superior.support.preferences.SecureSettingSwitchPreference
            android:key="spoof_storage_encryption_status"

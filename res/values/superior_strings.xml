@@ -643,9 +643,9 @@
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Scale</string>
     
-    <!-- GamesPropsUtils -->
-    <string name="games_device_spoof_title">Unlock higher FPS in games</string>
-    <string name="games_device_spoof_summary">Spoof device as a high-end model in certain games, to unlock higher FPS</string>
+    <!-- Unlock FPS for specific games -->
+    <string name="use_games_spoof_title">Unlock higher FPS in games</string>
+    <string name="use_games_spoof_summary">Spoof your device as a different model for specific games to unlock higher FPS</string>
 
     <!-- Quick settings styles -->
     <string name="qs_styles_title">Combined QS Element Styles</string>
