@@ -20,6 +20,16 @@
 
      <PreferenceCategory
         android:title="@string/general_category">
+        
+        <!-- Parallel Space -->
+    <Preference
+        android:key="parallel_space"
+        android:title="@string/laboratory_parallel_space_title"
+        android:summary="@string/laboratory_parallel_space_summary">
+        <intent
+            android:targetPackage="ink.kscope.parallelspace"
+            android:targetClass="ink.kscope.parallelspace.MainActivity" />
+    </Preference>
 
         <com.superior.support.preferences.SystemSettingSwitchPreference
             android:key="enable_ripple_effect"
